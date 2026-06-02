@@ -1,0 +1,1032 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #111114;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  padding: 48px 64px;
+  background: linear-gradient(135deg, #171724, #272740);
+  border-bottom: 1px solid #2f2f45;
+}
+
+.header-content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.eyebrow,
+.section-label {
+  color: #9ca3ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 42px;
+}
+
+.subtitle {
+  color: #c7c7d1;
+  max-width: 650px;
+  margin-top: 18px;
+}
+
+/* Header dashboard */
+
+.summary-card {
+  background: rgba(16, 16, 20, 0.72);
+  border: 1px solid #34344c;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.summary-header {
+  margin-bottom: 18px;
+}
+
+.summary-eyebrow {
+  color: #a9b3ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  margin: 0 0 6px;
+}
+
+.summary-card h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.summary-body {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.summary-pie-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.summary-pie {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.summary-pie::before {
+  content: "";
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #181820;
+  border: 1px solid #303048;
+  position: absolute;
+}
+
+.summary-pie-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.summary-total-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.summary-total-label {
+  font-size: 11px;
+  color: #b8b8c8;
+}
+
+.summary-list {
+  display: grid;
+  gap: 10px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #e6e6f2;
+  font-size: 14px;
+}
+
+.summary-item strong {
+  font-size: 15px;
+}
+
+.summary-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9d9e8;
+}
+
+.summary-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.watching-dot {
+  background: #5b8cff;
+}
+
+.completed-dot {
+  background: #41c98a;
+}
+
+.planned-dot {
+  background: #9b6dff;
+}
+
+.total-row {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid #2f2f45;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  padding: 32px 64px;
+}
+
+.content-area {
+  display: grid;
+  gap: 24px;
+}
+
+.anime-form,
+.panel,
+.watching-panel {
+  background: #181820;
+  border: 1px solid #2d2d3a;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.anime-form h2,
+.panel h2,
+.watching-panel h2 {
+  margin-top: 0;
+}
+
+.watching-header,
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.panel-subtitle {
+  color: #b7b7c7;
+  margin-top: 6px;
+}
+
+.watching-count {
+  background: #2a2a38;
+  color: #e8e8f2;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: #101014;
+  color: #f5f5f5;
+  border: 1px solid #36364a;
+  border-radius: 10px;
+  padding: 11px 12px;
+  outline: none;
+}
+
+textarea {
+  margin-top: 12px;
+  min-height: 90px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #7777ff;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  color: #d3d3dd;
+}
+
+.checkbox-row input {
+  width: auto;
+  margin-right: 6px;
+}
+
+.primary-button {
+  width: 100%;
+  background: #7474ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: bold;
+}
+
+.primary-button:hover {
+  background: #6262e8;
+}
+
+.secondary-button {
+  background: #2a2a38;
+  color: #f5f5f5;
+  border: 1px solid #414158;
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-weight: bold;
+}
+
+.secondary-button:hover {
+  background: #343447;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 220px 220px;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.anime-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.anime-card {
+  background: #101014;
+  border: 1px solid #2d2d3a;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.anime-card:hover {
+  transform: translateY(-4px);
+  border-color: #5555aa;
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:focus {
+  outline: 2px solid #7777ff;
+  outline-offset: 4px;
+}
+
+.anime-cover-wrapper {
+  position: relative;
+}
+
+.anime-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #252532;
+  display: block;
+}
+
+.card-status,
+.modal-status {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(16, 16, 20, 0.85);
+  color: white;
+  border: 1px solid #454563;
+  white-space: nowrap;
+}
+
+.card-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.card-status.watching,
+.modal-status.watching {
+  background: rgba(49, 91, 143, 0.9);
+}
+
+.card-status.planned,
+.modal-status.planned {
+  background: rgba(103, 81, 143, 0.9);
+}
+
+.card-status.completed,
+.modal-status.completed {
+  background: rgba(40, 120, 93, 0.9);
+}
+
+.card-status.on_hold,
+.modal-status.on_hold {
+  background: rgba(150, 110, 45, 0.9);
+}
+
+.card-status.dropped,
+.modal-status.dropped {
+  background: rgba(130, 45, 60, 0.9);
+}
+
+.anime-card-content {
+  padding: 16px;
+}
+
+.anime-card-content h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.anime-card-meta {
+  color: #b7b7c7;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-tag {
+  background: #2a2a38;
+  color: #e8e8f2;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.progress-block {
+  margin-bottom: 14px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  color: #c7c7d1;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #2a2a38;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #7777ff;
+}
+
+.ongoing-progress-bar {
+  position: relative;
+}
+
+.ongoing-progress-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #5050a8, #7777ff, #5050a8);
+  opacity: 0.55;
+}
+
+.anime-card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #dddded;
+  font-size: 13px;
+}
+
+.empty-message {
+  color: #b7b7c7;
+}
+
+.error-message {
+  color: #ff8a8a;
+}
+
+/* Watching table */
+
+.watching-table-wrapper {
+  overflow-x: auto;
+}
+
+.watching-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.watching-table th,
+.watching-table td {
+  border-bottom: 1px solid #2d2d3a;
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.watching-table th {
+  color: #a8a8b8;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.watching-title-cell {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.page-icon {
+  color: #9ca3ff;
+  margin-right: 8px;
+}
+
+.episode-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.episode-control input {
+  width: 90px;
+  padding: 8px;
+}
+
+.episode-control span {
+  color: #b7b7c7;
+  white-space: nowrap;
+}
+
+.mini-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-progress-bar {
+  width: 90px;
+  height: 7px;
+  background: #2a2a38;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: #7777ff;
+}
+
+.mini-progress span {
+  color: #c7c7d1;
+  font-size: 13px;
+  min-width: 36px;
+}
+
+.ongoing-label {
+  display: inline-block;
+  background: #2a2a38;
+  color: #d7d7e2;
+  border: 1px solid #414158;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.watching-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.watching-actions button {
+  border: none;
+  border-radius: 9px;
+  padding: 8px 10px;
+  color: white;
+  font-weight: bold;
+  background: #3f3f68;
+}
+
+.watching-actions button:hover {
+  background: #515184;
+}
+
+.watching-actions button:nth-child(2) {
+  background: #5050a8;
+}
+
+.watching-actions button:nth-child(2):hover {
+  background: #6262c8;
+}
+
+.watching-actions button:nth-child(3) {
+  background: #28785d;
+}
+
+.watching-actions button:nth-child(3):hover {
+  background: #31926f;
+}
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.anime-modal {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #181820;
+  border: 1px solid #39394d;
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #454563;
+  background: rgba(16, 16, 20, 0.9);
+  color: white;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.modal-close-button:hover {
+  background: #2a2a38;
+}
+
+.modal-cover-section {
+  background: #101014;
+  border-right: 1px solid #2d2d3a;
+}
+
+.modal-cover {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-content-section {
+  padding: 32px;
+}
+
+.modal-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.modal-eyebrow {
+  color: #9ca3ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.modal-content-section h2,
+.modal-edit-form h2 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.modal-meta {
+  color: #b7b7c7;
+  margin-bottom: 16px;
+}
+
+.modal-description {
+  color: #d7d7e2;
+  line-height: 1.6;
+  margin: 18px 0;
+}
+
+.modal-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.modal-info-grid div {
+  background: #101014;
+  border: 1px solid #2d2d3a;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.info-label {
+  display: block;
+  color: #9c9caf;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.modal-progress {
+  margin-top: 18px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-actions button {
+  border: none;
+  border-radius: 10px;
+  padding: 9px 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.modal-actions .primary-button {
+  width: auto;
+}
+
+.edit-button {
+  background: #5050a8;
+}
+
+.edit-button:hover {
+  background: #6262c8;
+}
+
+.delete-button {
+  background: #7d2d3a;
+}
+
+.delete-button:hover {
+  background: #9c3446;
+}
+
+.modal-edit-form {
+  grid-column: 1 / -1;
+  padding: 32px;
+}
+
+.modal-form-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .header-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .header {
+    padding: 32px 24px;
+  }
+
+  .anime-modal {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-cover {
+    min-height: auto;
+    height: 300px;
+  }
+
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .summary-list {
+    width: 100%;
+  }
+}
+
+/* Filter panel */
+
+.filters-panel {
+  display: grid;
+  grid-template-columns: 1fr 180px 180px 180px auto;
+  gap: 14px;
+  align-items: end;
+  background: #101014;
+  border: 1px solid #2d2d3a;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.filter-field {
+  display: grid;
+  gap: 7px;
+}
+
+.filter-field label {
+  color: #a8a8b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: end;
+}
+
+.clear-filters-button {
+  background: #2a2a38;
+  color: #f5f5f5;
+  border: 1px solid #414158;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.clear-filters-button:hover:not(:disabled) {
+  background: #3a3a50;
+}
+
+.clear-filters-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.results-count {
+  color: #b7b7c7;
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+
+/* Form validation */
+
+.field-error {
+  color: #ff8a8a;
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
+/* Toast messages */
+
+.toast-message {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2000;
+  padding: 13px 16px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  animation: toastIn 0.2s ease-out;
+}
+
+.toast-message.success {
+  background: #28785d;
+}
+
+.toast-message.error {
+  background: #9c3446;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1250px) {
+  .filters-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-field {
+    grid-column: 1 / -1;
+  }
+
+  .filter-actions {
+    align-items: stretch;
+  }
+
+  .clear-filters-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .filters-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Related anime section */
+
+.related-section {
+  margin-top: 24px;
+  background: #101014;
+  border: 1px solid #2d2d3a;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.related-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.related-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.related-header span {
+  color: #b7b7c7;
+  font-size: 13px;
+}
+
+.related-list {
+  display: grid;
+  gap: 10px;
+}
+
+.related-item {
+  width: 100%;
+  background: #181820;
+  border: 1px solid #34344c;
+  border-radius: 12px;
+  padding: 12px;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+}
+
+.related-item:hover {
+  border-color: #7777ff;
+  background: #202030;
+}
+
+.related-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.related-item span {
+  color: #b7b7c7;
+  font-size: 13px;
+}
+
+.related-status {
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: white;
+  background: #303048;
+  white-space: nowrap;
+}
+
+.related-status.watching {
+  background: rgba(49, 91, 143, 0.9);
+}
+
+.related-status.planned {
+  background: rgba(103, 81, 143, 0.9);
+}
+
+.related-status.completed {
+  background: rgba(40, 120, 93, 0.9);
+}
+
+.related-status.on_hold {
+  background: rgba(150, 110, 45, 0.9);
+}
+
+.related-status.dropped {
+  background: rgba(130, 45, 60, 0.9);
+}
+
+.related-empty {
+  color: #b7b7c7;
+  margin: 0;
+  line-height: 1.5;
+}
