@@ -29,3 +29,6 @@ backups/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Bundled Java runtime for local builds
+DesktopApp/build/jre/

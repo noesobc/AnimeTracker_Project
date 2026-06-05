@@ -27,6 +27,10 @@
       {
         "from": "build/icon.ico",
         "to": "icon.ico"
+      },
+      {
+        "from": "build/jre",
+        "to": "jre"
       }
     ],
     "win": {

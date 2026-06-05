@@ -53,6 +53,14 @@ function getAppIconPath() {
   return path.join(__dirname, "build", "icon.ico");
 }
 
+function getJavaExecutablePath() {
+  if (app.isPackaged) {
+    return path.join(process.resourcesPath, "jre", "bin", "java.exe");
+  }
+
+  return "java";
+}
+
 function copyInitialDatabaseIfNeeded() {
   if (!app.isPackaged) {
     return;
@@ -124,6 +132,7 @@ function startBackend() {
   const jarPath = getBackendJarPath();
   const workingDirectory = getBackendWorkingDirectory();
   const databaseBasePath = normalizePathForH2(getDatabaseBasePath());
+  const javaExecutable = getJavaExecutablePath();
 
   if (!fs.existsSync(jarPath)) {
     dialog.showErrorBox(
@@ -135,10 +144,20 @@ function startBackend() {
     return;
   }
 
+  if (!fs.existsSync(javaExecutable) && app.isPackaged) {
+    dialog.showErrorBox(
+      "Java Runtime not found",
+      `The bundled Java Runtime was not found:\n\n${javaExecutable}`
+    );
+
+    app.quit();
+    return;
+  }
+
   copyInitialDatabaseIfNeeded();
 
   backendProcess = spawn(
-    "java",
+    javaExecutable,
     [
       "-jar",
       jarPath,
@@ -161,8 +180,8 @@ function startBackend() {
 
   backendProcess.on("error", (error) => {
     dialog.showErrorBox(
-      "Java not found",
-      `Could not start the Spring Boot backend.\n\n${error.message}\n\nCheck that Java is installed and available in PATH.`
+      "Backend startup error",
+      `Could not start the Spring Boot backend.\n\n${error.message}`
     );
 
     app.quit();
